@@ -28,10 +28,13 @@ To get started with backend development, you need to understand two main compone
    - In the starting time, the backend in JS is analogous to learning Node.js since it is the only available JavaScript runtime environment (JRE) for a more extended period. Learning Node.js provides advantages, but it's essential to note that Node.js is not synonymous with backend development. Some misconceptions may arise due to a lack of knowledge or attempts to make courses more comprehensive by some greedy Indian YouTubers.
 
 
-2. **Key Components:**
-   - Utilize Express(sending query and receiving responses) for routing and Mongoose for database interaction in JavaScript-based backend development.
+2. **Express for Handling HTTP Requests:**
+   - Express is widely used for listening to server-side requests, with a significant focus on handling HTTP GET requests. It simplifies routing and allows for efficient handling of different endpoints.
 
-3. **Handling Data:**
+3. **Mongoose for Database Interaction:**
+   - Utilize Mongoose for seamless interaction with databases, making it easier to work with MongoDB in JavaScript-based backend development.
+
+4. **Handling Data:**
    - Backend in JavaScript deals with three main types of data: user data (e.g., username, password), files (e.g., images, videos), and third-party APIs (e.g., Google Login,Github Login, AWS).
 
 ## File Structure
