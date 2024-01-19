@@ -29,7 +29,7 @@ To get started with backend development, you need to understand two main compone
 
 
 2. **Key Components:**
-   - Utilize Express for routing and Mongoose for database interaction in JavaScript-based backend development.
+   - Utilize Express(sending query and receiving responses) for routing and Mongoose for database interaction in JavaScript-based backend development.
 
 3. **Handling Data:**
    - Backend in JavaScript deals with three main types of data: user data (e.g., username, password), files (e.g., images, videos), and third-party APIs (e.g., Google Login,Github Login, AWS).
