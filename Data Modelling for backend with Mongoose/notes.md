@@ -48,3 +48,34 @@
   - Use `{ timestamps: true }` in the schema to add `createdAt` and `updatedAt` fields  automatically.
   - The model name "User" is stored in MongoDB as "users" by default.
 
+# Storing Binary Data in MongoDB
+
+## Introduction
+When dealing with binary data such as images, PDFs, and videos, directly storing them in a MongoDB database using the `Buffer` type is generally considered a bad practice. Instead, it is recommended to store such data outside the database, often on a server or utilizing third-party APIs like AWS S3 or Cloudinary. The preferred approach is to store a URL or reference to the location where the binary data is stored.
+
+## Reasons for Avoiding Direct Storage in MongoDB
+1. **Limited Document Size:** MongoDB has a document size limit of 16 MB, making direct storage impractical for large binary data.
+
+2. **Performance Issues:** Retrieving large binary data with each document can impact performance, especially in the case of multiple or concurrent requests.
+
+3. **Backup and Restore Challenges:** Managing backups and restores of databases with large binary data can be resource-intensive.
+
+## Best Practice Example using Mongoose
+Here's a simplified example using Mongoose to model binary data storage with a reference to the external location:
+
+```javascript
+import mongoose from 'mongoose';
+
+const fileSchema = new mongoose.Schema({
+  // Other file-related metadata fields
+  filename: String,
+  contentType: String,
+  size: Number,
+  // Store the URL or reference to the file location
+  fileUrl: String,
+});
+
+export const File = mongoose.model('File', fileSchema);
+```
+
+
