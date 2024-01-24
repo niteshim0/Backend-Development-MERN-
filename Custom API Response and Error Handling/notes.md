@@ -144,8 +144,99 @@ Middleware is arranged in a stack, and the order in which you use them matters. 
   .catch((err)=>next(err));
 ```
 
+# ApiError Class
 
+The `ApiError` class is a custom error class designed to represent errors in an API. It extends the built-in `Error` class and provides additional information such as the HTTP status code, a message, an array of errors, and a stack trace.
 
+## Constructor Parameters
+
+- `statusCode`: The HTTP status code associated with the error.
+- `message`: The error message (default: "Something went wrong").
+- `errors`: An array of detailed error information (default: []).
+- `stack`: The stack trace for the error (default: ""). If not provided, it captures the stack trace using `Error.captureStackTrace`.
+
+## Class Properties
+
+- `statusCode`: Stores the HTTP status code.
+- `data`: Additional data associated with the error (set to `null` by default).
+- `message`: Stores the error message.
+- `success`: Indicates whether the operation was successful (set to `false` by default).
+- `errors`: Stores an array of detailed error information.
+
+## Stack Trace Handling
+
+If a stack trace (`stack`) is provided, it is used; otherwise, `Error.captureStackTrace` captures the stack trace.
+
+## Export Statement
+
+The `ApiError` class is exported for use in other modules.
+
+```javascript
+// Import statements may be needed depending on your project setup.
+
+/**
+ * Custom API Error class.
+ */
+class ApiError extends Error {
+  /**
+   * Constructor for ApiError.
+   * @param {number} statusCode - HTTP status code for the error.
+   * @param {string} message - Error message (default: "Something went wrong").
+   * @param {Array} errors - Array of detailed error information (default: []).
+   * @param {string} stack - Stack trace for the error (default: "").
+   */
+  constructor(statusCode, message = "Something went wrong", errors = [], stack = "") {
+    super(message);
+
+    // Properties specific to ApiError
+    this.statusCode = statusCode;
+    this.data = null; // Additional data (can be set if needed).
+    this.message = message;
+    this.success = false; // Indicate that the operation was not successful.
+    this.errors = errors;
+
+    // Manage the stack trace
+    if (stack) {
+      this.stack = stack;
+    } else {
+      Error.captureStackTrace(this, this.constructor);
+    }
+  }
+}
+
+// Export the ApiError class for use in other modules.
+export { ApiError };
+```
+
+# ApiResponse Class
+
+The `ApiResponse` class is a simple class designed to represent a standardized response for successful API operations. It takes into account the HTTP status code, the data payload, and an optional success message.
+
+## Constructor Parameters
+
+- `statusCode`: The HTTP status code for the response.
+- `data`: The data payload to be included in the response.
+- `message`: The success message (default: "Success").
+
+## Class Properties
+
+- `statusCode`: Stores the HTTP status code for the response.
+- `data`: Stores the data payload to be included in the response.
+- `message`: Stores the success message.
+- `success`: Indicates whether the operation was successful. Determined based on the HTTP status code; `true` if the status code is less than 400.
+
+## Example Usage
+
+```javascript
+class ApiResponse{
+  constructor(statusCode,data,message = "Success"){
+    this.statusCode = statusCode
+    this.data = data
+    this.message = message
+    this.success = statusCode<400
+  }
+}
+```
 
 
 
