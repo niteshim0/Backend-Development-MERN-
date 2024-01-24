@@ -84,8 +84,7 @@
        throw error;
      }
    })();
-   
-  ```
+   ```
 
 ## Error Handling
 
