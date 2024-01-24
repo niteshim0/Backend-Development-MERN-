@@ -71,13 +71,3 @@ npm install --save-dev prettier
 ```
 - Run `npm run format` to format your code.
 
-
-
-## 1. Project Structure:
-Establish a clear project structure to keep your code organized. For example:
-
-## 1. Project Structure:
-Establish a clear project structure to keep your code organized. For example:
-
-## 1. Project Structure:
-Establish a clear project structure to keep your code organized. For example:
