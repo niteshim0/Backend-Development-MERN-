@@ -297,6 +297,7 @@ Middlewares in web development are functions that have access to the request and
 
   ```
 
+In web development, middleware functions play a crucial role in handling tasks during the request-response cycle. Understanding the distinction between global and route-specific middleware is essential for effective application development.
 
 # Global vs. Route-Specific Middleware
 
