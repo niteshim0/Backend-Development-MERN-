@@ -288,13 +288,14 @@ Middlewares in web development are functions that have access to the request and
    - A middleware function receives the `request` and `response` objects, and the `next` function in the application's request-response cycle.
 
    ```javascript
+   
    const middlewareFunction = (req, res, next) => {
      // Do something with the request or response
      // Call next() to pass control to the next middleware or route handler
      next();
    };
-  ```
-# Global vs. Route-Specific Middleware
+
+  ```# Global vs. Route-Specific Middleware
 
 In web development, middleware functions play a crucial role in handling tasks during the request-response cycle. Understanding the distinction between global and route-specific middleware is essential for effective application development.
 
